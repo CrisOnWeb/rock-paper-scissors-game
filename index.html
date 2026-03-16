@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@400..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Orbitron:wght@400..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/main.css" />
@@ -15,35 +15,44 @@
   </head>
   <body>
     <header class="header">
-      <h1 class="header__title">Piedra, papel o tijera</h1>
+      <h1 class="header__title">Piedra, papel o tijera contra A.U.R.A.</h1>
+      <p class="header__text">
+        (Absolutely Unbeatable Rock-paper-scissors Algorithm)
+      </p>
     </header>
 
     <main class="main">
       <form class="main__form">
         <label class="main__text-choose-play" for="choose-play"
-          >Escoge tu arma sabiamente</label
+          >Escoge tu arma sabiamente:</label
         >
-        <select
-          class="main__select-choose-play"
-          name="choose-play"
-          id="choose-play"
-        >
-          <option value="default-value">Seleccione su jugada</option>
-          <option value="rock">Piedra 🪨​</option>
-          <option value="paper">Papel 🧻</option>
-          <option value="scissors">Tijeras ✂️</option>
-        </select>
-        <button type="submit">Jugar</button>
+        <div class="main__container-choose-play">
+          <select
+            class="main__select-choose-play"
+            name="choose-play"
+            id="choose-play"
+          >
+            <option value="default-value">Seleccione su jugada</option>
+            <option value="rock">Piedra 🪨​</option>
+            <option value="paper">Papel 🧻</option>
+            <option value="scissors">Tijeras ✂️</option>
+          </select>
+          <button class="main__choose-play-btn btn" type="submit">Jugar</button>
+        </div>
       </form>
 
-      <button class="main__initial-btn">Vamos a jugar</button>
+      <button class="main__initial-btn btn">¡DESAFIAR A A.U.R.A!</button>
 
-      <p class="main__results"></p>
+      <p class="main__results paragraph__styles">foo</p>
 
       <div class="counters">
-        <p class="counters__player-counter"></p>
-        <p class="counters__machine-counter"></p>
+        <p class="counters__player-counter paragraph__styles">foo</p>
+        <p class="counters__machine-counter paragraph__styles">foo</p>
       </div>
     </main>
+
+    <footer>
+      <p>© 2026 Cris · Desarrollado por una humana. Supervisado por A.U.R.A.</p>
+    </footer>
   </body>
 </html>
