@@ -105,7 +105,12 @@ body {
   padding-block: 0.5rem;
 }
 
-.counters__player-counter {
+.play-again {
+  padding-block: 0.5rem;
+}
+
+.counters__player-counter,
+.counters__machine-counter {
   margin-bottom: 0.5rem;
 }
 
@@ -126,8 +131,9 @@ footer {
   margin-block: 2rem;
   padding-block: 3rem;
   padding-inline: 2rem;
-  background-color: rgb(197, 197, 197);
+  background-color: rgb(151, 151, 151);
   border-radius: 15px;
+  box-shadow: 0px 4px 13px 2px rgb(197, 197, 197);
   color: white;
   font-weight: 500;
 

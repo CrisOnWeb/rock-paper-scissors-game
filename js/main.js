@@ -4,11 +4,13 @@
 const gameForm = document.querySelector('.js__gameForm');
 const playerMove = document.querySelector('.js__playerMove');
 const choosePlayBtn = document.querySelector('.js__choosePlayBtn');
+const playAgainBtn = document.querySelector('.js__playAgainBtn');
 const matchResult = document.querySelector('.js__matchResult');
 const startGameBtn = document.querySelector('.js__startGameBtn');
 const countersContainer = document.querySelector('.js__countersContainer');
 const playerCounter = document.querySelector('.js__playerCounter');
 const auraCounter = document.querySelector('.js__auraCounter');
+const tiesCounter = document.querySelector('.js__tiesCounter');
 const endGameMessage = document.querySelector('.js__endGameMessage');
 const auraComments = document.querySelector('.js__auraComments');
 
@@ -87,6 +89,7 @@ function checkWinner(player, aura) {
     auraComments.innerHTML = message;
 
     ties++;
+    tiesCounter.innerHTML = ties;
   } else {
     if (
       (player === 'rock' && aura === 'scissors') ||
@@ -116,7 +119,23 @@ function checkWinner(player, aura) {
   }
 
   if (ties + playerWins + auraWins === 10) {
+    gameForm.classList.add('hidden');
+    playAgainBtn.classList.remove('hidden');
     endGameMessage.classList.remove('hidden');
+    if (playerWins === auraWins) {
+      matchResult.innerHTML = '¡A.U.R.A. Y TÚ HABÉIS EMPATADO!';
+      auraComments.innerHTML =
+        '[A.U.R.A.]: Eres una digna competidora, sorprendentemente...';
+    } else if (playerWins > auraWins) {
+      matchResult.innerHTML = '¡HAS GANADO A A.U.R.A., ENHORABUENA!';
+      auraComments.innerHTML =
+        '[A.U.R.A.]: Está claro que hoy es tu día de suerte.';
+    } else {
+      matchResult.innerHTML =
+        'HAS PERDIDO, A VER QUIÉN AGUANTA A A.U.R.A. AHORA...';
+      auraComments.innerHTML =
+        '[A.U.R.A.]: Nada inesperado, por algo soy imbatible.\n [A.U.R.A.]: Ahora no le eches la culpa a Mercurio retrógado.';
+    }
   }
 }
 
@@ -126,12 +145,26 @@ function getRandomItem(array) {
   return array[index];
 }
 
+// Volver a los datos iniciales
+function resetData() {
+  gameForm.reset();
+  playerWins = 0;
+  auraWins = 0;
+  ties = 0;
+  matchResult.innerHTML = '¡A la mejor de 10!';
+  playerCounter.innerHTML = '0';
+  auraCounter.innerHTML = '0';
+  tiesCounter.innerHTML = '0';
+  endGameMessage.classList.add('hidden');
+  auraComments.innerHTML = initialAuraMessage;
+}
+
 // SECCIÓN DE FUNCIONES DE EVENTOS
 // Crear dinámica botón de inicio de juego
 function startGame() {
   gameForm.classList.remove('hidden');
   startGameBtn.classList.add('hidden');
-  matchResult.innerHTML = '';
+  matchResult.innerHTML = '¡A la mejor de 10!';
   auraComments.innerHTML = '[A.U.R.A.]: Elige tu arma, humana.';
 }
 
@@ -147,9 +180,16 @@ function chooseMovement(event) {
   checkWinner(player, auraMove);
 }
 
+function playAgain() {
+  resetData();
+  gameForm.classList.remove('hidden');
+  playAgainBtn.classList.add('hidden');
+}
+
 // SECCIÓN DE EVENTOS
 startGameBtn.addEventListener('click', startGame);
 choosePlayBtn.addEventListener('click', chooseMovement);
+playAgainBtn.addEventListener('click', playAgain);
 
 // SECCIÓN DE ACCIONES AL CARGAR LA PÁGINA
 // Mensaje inicial de AURA
