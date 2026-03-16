@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.N Lección</title>
-
+    <title>Piedra, papel o tijera - game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/main.js" defer></script>
   </head>
@@ -12,6 +17,33 @@
     <header class="header">
       <h1 class="header__title">Piedra, papel o tijera</h1>
     </header>
-    <main class="main"></main>
+
+    <main class="main">
+      <form class="main__form">
+        <label class="main__text-choose-play" for="choose-play"
+          >Escoge tu arma sabiamente</label
+        >
+        <select
+          class="main__select-choose-play"
+          name="choose-play"
+          id="choose-play"
+        >
+          <option value="default-value">Seleccione su jugada</option>
+          <option value="rock">Piedra 🪨​</option>
+          <option value="paper">Papel 🧻</option>
+          <option value="scissors">Tijeras ✂️</option>
+        </select>
+        <button type="submit">Jugar</button>
+      </form>
+
+      <button class="main__initial-btn">Vamos a jugar</button>
+
+      <p class="main__results"></p>
+
+      <div class="counters">
+        <p class="counters__player-counter"></p>
+        <p class="counters__machine-counter"></p>
+      </div>
+    </main>
   </body>
 </html>
