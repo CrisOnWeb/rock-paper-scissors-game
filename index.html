@@ -22,13 +22,13 @@
     </header>
 
     <main class="main">
-      <form class="main__form">
+      <form class="js__gameForm main__form hidden">
         <label class="main__text-choose-play" for="choose-play"
           >Escoge tu arma sabiamente:</label
         >
         <div class="main__container-choose-play">
           <select
-            class="main__select-choose-play"
+            class="js__playerMove main__select-choose-play"
             name="choose-play"
             id="choose-play"
           >
@@ -37,18 +37,29 @@
             <option value="paper">Papel 🧻</option>
             <option value="scissors">Tijeras ✂️</option>
           </select>
-          <button class="main__choose-play-btn btn" type="submit">Jugar</button>
+          <button
+            class="js__choosePlayBtn main__choose-play-btn btn"
+            type="submit"
+          >
+            Jugar
+          </button>
         </div>
       </form>
 
-      <button class="main__initial-btn btn">¡DESAFIAR A A.U.R.A!</button>
+      <button class="js__startGameBtn main__start-btn btn">
+        ¡DESAFIAR A A.U.R.A!
+      </button>
 
-      <p class="main__results paragraph__styles">foo</p>
+      <p class="js__matchResult main__results paragraph__styles">foo</p>
 
       <div class="counters">
         <p class="counters__player-counter paragraph__styles">foo</p>
         <p class="counters__machine-counter paragraph__styles">foo</p>
       </div>
+
+      <p class="js__auraComments aura__comments paragraph__styles">
+        [A.U.R.A.] Elige tu arma, humana.
+      </p>
     </main>
 
     <footer>

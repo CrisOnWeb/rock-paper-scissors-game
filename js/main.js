@@ -1,37 +1,73 @@
 'use strict';
 
 // SECCIÓN DE QUERY-SELECTOR
-// Éstos son los elementos que nos traemos de la página HTML y usamos en el código
-
-
+const gameForm = document.querySelector('.js__gameForm');
+const playerMove = document.querySelector('.js__playerMove');
+const choosePlayBtn = document.querySelector('.js__choosePlayBtn');
+const matchResult = document.querySelector('.js__matchResult');
+const startGameBtn = document.querySelector('.js__startGameBtn');
 
 // SECCIÓN DE DATOS
-// Variables globales que almacenan la información principal de la aplicación
-// y se usan por todo el fichero.
-
-
 
 // SECCIÓN DE FUNCIONES
-// Éstas son funciones:
 //   - con código auxiliar
 //   - con código que usaremos en los eventos
 //   - para pintar (render) en la página.
+// Obtener un número aleatorio
+function getRandomNumber(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
 
+function createAuraMove() {
+  const auraNumber = getRandomNumber(9);
 
+  if (auraNumber <= 3) {
+    return 'rock';
+  } else if (auraNumber >= 7) {
+    return 'paper';
+  } else {
+    return 'scissors';
+  }
+}
 // SECCIÓN DE FUNCIONES DE EVENTOS
 // Aquí van las funciones handler/manejadoras de eventos
+function startGame() {
+  gameForm.classList.remove('hidden');
+  startGameBtn.classList.add('hidden');
+}
 
+function chooseMovement(event) {
+  event.preventDefault();
+
+  const player = playerMove.value;
+  const auraMove = createAuraMove();
+  console.log(player);
+  console.log(auraMove);
+
+  checkWinner(player, auraMove);
+}
+
+function checkWinner(player, aura) {
+  if (player === aura) {
+    // empate
+  } else {
+    if (
+      (player === 'rock' && aura === 'scissors') ||
+      (player === 'paper' && aura === 'rock') ||
+      (player === 'scissors' && aura === 'paper')
+    ) {
+      matchResult.innerHTML = `Jugador gana`;
+    } else if (
+      (player === 'rock' && aura === 'paper') ||
+      (player === 'paper' && aura === 'scissors') ||
+      (player === 'scissors' && aura === 'rock')
+    ) {
+      matchResult.innerHTML = `jugador pierde`;
+    }
+  }
+}
 
 // SECCIÓN DE EVENTOS
-// Éstos son los eventos a los que reacciona la página
-// Los más comunes son: click (en botones, enlaces), input (en ídem) y submit (en form)
-
-
-
+startGameBtn.addEventListener('click', startGame);
+choosePlayBtn.addEventListener('click', chooseMovement);
 // SECCIÓN DE ACCIONES AL CARGAR LA PÁGINA
-// Este código se ejecutará cuando se carga la página
-// Lo más común es:
-//   - Pedir datos al servidor
-//   - Pintar (render) elementos en la página
-
-console.log('Página y JS cargados!');

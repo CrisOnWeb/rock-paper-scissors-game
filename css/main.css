@@ -101,7 +101,7 @@ body {
   background-color: rgb(45, 121, 121);
 }
 
-.main__initial-btn {
+.main__start-btn {
   padding-block: 0.5rem;
 }
 
@@ -120,4 +120,18 @@ footer {
 .paragraph__styles {
   color: rgb(82, 82, 82);
   letter-spacing: 0.05rem;
+}
+
+.aura__comments {
+  margin-block: 2rem;
+  padding-block: 3rem;
+  padding-inline: 2rem;
+  background-color: rgb(197, 197, 197);
+  border-radius: 15px;
+  color: white;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
 }
